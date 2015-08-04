@@ -1,11 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
-get_ipython().magic(u'load_ext autoreload')
-get_ipython().magic(u'autoreload 2')
-
 import scipy
 import numpy as np
 import pandas as pd
@@ -15,8 +7,6 @@ import geopandas.io.osm as osm
 import pandana
 
 import pandana.loaders.osm as osm_load
-
-get_ipython().magic(u'matplotlib inline')
 
 
 # In[2]:
@@ -76,9 +66,4 @@ for num, row in big_mets.iterrows():
     # osm_load.h5_from_bbox(y_min, x_min, y_max, x_max, '{}.h5'.format(row['name'].replace(' ', '')))
 
     print 'saved {}'.format(row['name'])
-
-
-# In[ ]:
-
-
 
