@@ -8,8 +8,6 @@ import geopandas.io.osm as osm
 
 import pandana
 
-import pandana.loaders.osm as osm_load
-
 def h5_from_bbox(lat_min, lng_min, lat_max, lng_max, filename, rm_nodes=None,
                 network_type='walk', two_way=True):
     """
@@ -36,7 +34,7 @@ def h5_from_bbox(lat_min, lng_min, lat_max, lng_max, filename, rm_nodes=None,
     Nothing. Writes an HDF5 file to the current directory.
 
     """
-    pandash5.network_to_pandas_hdf5(network_from_bbox(lat_min, lng_min, lat_max, 
+    pandana.pandash5.network_to_pandas_hdf5(network_from_bbox(lat_min, lng_min, lat_max, 
                         lng_max, network_type, two_way), filename, rm_nodes)
 
 
