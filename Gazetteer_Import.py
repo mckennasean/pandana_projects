@@ -10,6 +10,35 @@ import pandana
 
 import pandana.loaders.osm as osm_load
 
+def h5_from_bbox(lat_min, lng_min, lat_max, lng_max, filename, rm_nodes=None,
+                network_type='walk', two_way=True):
+    """
+    Save an HDF5 file with 'nodes' and 'edges' panels from a bounding lat/lon box.
+
+    Parameters
+    ----------
+    lat_min, lng_min, lat_max, lng_max : float
+    filename : string
+    rm_nodes : array_like
+        A list, array, Index, or Series of node IDs that should *not*
+        be saved as part of the Network.
+    network_type : {'walk', 'drive'}, optional
+        Specify whether the network will be used for walking or driving.
+        A value of 'walk' attempts to exclude things like freeways,
+        while a value of 'drive' attempts to exclude things like
+        bike and walking paths.
+    two_way : bool, optional
+        Whether the routes are two-way. If True, node pairs will only
+        occur once.
+
+    Returns
+    -------
+    Nothing. Writes an HDF5 file to the current directory.
+
+    """
+    pandash5.network_to_pandas_hdf5(network_from_bbox(lat_min, lng_min, lat_max, 
+                        lng_max, network_type, two_way), filename, rm_nodes)
+
 
 # In[2]:
 
@@ -65,7 +94,7 @@ for num, row in big_mets.iterrows():
 
     print x_min, x_max, y_min, y_max
 
-    osm_load.h5_from_bbox(y_min, x_min, y_max, x_max, '{}.h5'.format(row['name'].replace(' ', '')))
+    h5_from_bbox(y_min, x_min, y_max, x_max, '{}.h5'.format(row['name'].replace(' ', '')))
 
     print 'saved {}'.format(row['name'])
 
