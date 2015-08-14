@@ -34,8 +34,10 @@ def h5_from_bbox(lat_min, lng_min, lat_max, lng_max, filename, rm_nodes=None,
     Nothing. Writes an HDF5 file to the current directory.
 
     """
-    pandana.loaders.pandash5.network_to_pandas_hdf5(pandana.loaders.osm.network_from_bbox(lat_min, lng_min, lat_max, 
-                        lng_max, network_type, two_way), filename, rm_nodes)
+    net =  pandana.loaders.osm.network_from_bbox(lat_min, lng_min, lat_max, 
+                        lng_max, network_type, two_way)
+    pandana.loaders.pandash5.network_to_pandas_hdf5(net, filename, rm_nodes)
+
 
 
 # In[2]:
