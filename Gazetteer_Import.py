@@ -8,7 +8,7 @@ import geopandas.io.osm as osm
 
 import pandana
 
-import pandanas.loaders.osm as pdosm
+import pandana.loaders.osm as pdosm
 
 def h5_from_bbox(lat_min, lng_min, lat_max, lng_max, filename, rm_nodes=None,
                 network_type='walk', two_way=True):
