@@ -65,7 +65,7 @@ for num, row in big_mets.iterrows():
 
     print x_min, x_max, y_min, y_max
 
-    # osm_load.h5_from_bbox(y_min, x_min, y_max, x_max, '{}.h5'.format(row['name'].replace(' ', '')))
+    osm_load.h5_from_bbox(y_min, x_min, y_max, x_max, '{}.h5'.format(row['name'].replace(' ', '')))
 
     print 'saved {}'.format(row['name'])
 
