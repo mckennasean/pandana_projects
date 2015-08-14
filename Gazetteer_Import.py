@@ -49,7 +49,7 @@ met_areas = pd.read_table('Gaz_ua_national.txt', header = 0, names =
                            'area', 'water', 'area_mi', 'water_mi',
                            'lat', 'lon'])
 big_mets = met_areas[met_areas['pop'] > 100000]
-big_mets = big_mets[152:184]
+big_mets = big_mets[185:236]
 print big_mets[['name', 'area']]
 print 'number of metropolitan areas is {}'.format(len(big_mets))
 
